@@ -1,0 +1,27 @@
+<resources>
+
+    <!-- Base application theme. -->
+    <style name="AppTheme" parent="Theme.AppCompat.Light.NoActionBar">
+        <!-- Customize your theme here. -->
+        <item name="colorPrimary">@color/colorPrimary</item>
+        <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
+        <item name="colorAccent">@color/colorAccent</item>
+    </style>
+
+    <!--控制悬浮菜单向上弹窗进出动画-->
+    <style name="pop_float_menu_animation_up" parent="android:Animation">
+        <item name="android:windowEnterAnimation">@anim/pup_float_menu_up_enter</item>
+        <!-- 进入时的动画 -->
+        <item name="android:windowExitAnimation">@anim/pup_float_menu_up_exit</item>
+        <!-- 退出时的动画 -->
+    </style>
+
+    <!--控制悬浮菜单向下弹窗进出动画-->
+    <style name="pop_float_menu_animation_down" parent="android:Animation">
+        <item name="android:windowEnterAnimation">@anim/pup_float_menu_down_enter</item>
+        <!-- 进入时的动画 -->
+        <item name="android:windowExitAnimation">@anim/pup_float_menu_down_exit</item>
+        <!-- 退出时的动画 -->
+    </style>
+
+</resources>
