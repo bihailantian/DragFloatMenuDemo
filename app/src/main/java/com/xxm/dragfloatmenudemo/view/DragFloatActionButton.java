@@ -2,6 +2,7 @@ package com.xxm.dragfloatmenudemo.view;
 
 import android.animation.ObjectAnimator;
 import android.content.Context;
+import android.graphics.drawable.BitmapDrawable;
 import android.util.AttributeSet;
 import android.util.Log;
 import android.view.Gravity;
@@ -211,6 +212,11 @@ public class DragFloatActionButton extends FloatingActionButton {
             View contentView = LayoutInflater.from(mContext).inflate(menuResource, null);
             mPopWindow = new PopupWindow(contentView, LinearLayout.LayoutParams.WRAP_CONTENT, LinearLayout.LayoutParams.WRAP_CONTENT, true);
 
+            mPopWindow.setFocusable(true);//这里必须设置为true才能点击区域外或者消失
+            mPopWindow.setOutsideTouchable(true); //点击外部隐藏弹窗
+            mPopWindow.setTouchable(true); // 设置PopupWindow是否能响应点击事件
+            mPopWindow.setBackgroundDrawable(new BitmapDrawable());//设置背景，解决部分手机点击外部不能关闭的问题
+
             //制定测量规则 参数表示size + mode
             int width = View.MeasureSpec.makeMeasureSpec(0, View.MeasureSpec.UNSPECIFIED);
             int height = View.MeasureSpec.makeMeasureSpec(0, View.MeasureSpec.UNSPECIFIED);
@@ -271,7 +277,7 @@ public class DragFloatActionButton extends FloatingActionButton {
             offsetY = locationY - mPopupHeight - marginY;
             mPopWindow.setAnimationStyle(R.style.pop_float_menu_animation_up);
         }
-
+        offsetX = locationX + (getWidth() - mPopupWidth) / 2;
         Log.d(TAG, "offsetX=" + offsetX);
         Log.d(TAG, "offsetY=" + offsetY);
 
